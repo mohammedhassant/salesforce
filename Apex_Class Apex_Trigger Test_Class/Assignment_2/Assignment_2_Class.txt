@@ -1,0 +1,14 @@
+public class update_Account_class {
+    public static void update_Account_method(List<Account> acnts){
+        List<Contact> contToUpdate = new List<Contact>();
+    
+    for (Account a : acnts){
+        for(Contact c : [Select Id, FirstName, LastName, Profile__c from Contact where
+                                AccountId IN :acnts]){
+            c.Profile__c = a.Website + '/' + c.FirstName.subString(0,1) + c.LastName;
+            contToUpdate.add(c);
+        }
+    }
+    update contToUpdate;
+    }
+}

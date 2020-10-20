@@ -1,0 +1,16 @@
+public class create_contact_class {
+    public static void create_contact_method(List<Account> acnts){
+        List<Contact> conlis = new List<Contact>();
+   	
+        for(Account a : acnts){
+            conlis.add(new Contact(
+                FirstName = 'Info',
+                LastName = 'Default',
+                Email = 'info@websitedomain.tld',
+                AccountId = a.Id
+            ));
+        }
+        
+        insert conlis;
+    }
+}

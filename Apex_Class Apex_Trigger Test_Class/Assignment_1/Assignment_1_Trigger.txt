@@ -1,0 +1,3 @@
+trigger is_gold_trigger on Opportunity (after insert, after update) {
+        is_gold_class.is_gold_method(Trigger.New);
+}

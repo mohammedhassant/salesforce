@@ -1,0 +1,3 @@
+trigger update_Account_Trigger on Account (after update) {
+	update_Account_class.update_Account_method(Trigger.New);
+}

@@ -1,0 +1,14 @@
+@isTest
+public class Update_Account_profile_Test {
+	@isTest
+    private static void Account_profile_update(){
+        Account ac = new Account(Name = 'SampleTest');
+        insert ac;
+        Contact con = new Contact(AccountId = ac.Id);
+        insert con;
+        Test.startTest();
+        	ac.Website = 'www.google.com';
+        	update ac;
+        Test.stopTest();
+    }
+}

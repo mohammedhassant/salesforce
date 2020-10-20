@@ -1,0 +1,16 @@
+@isTest
+public class Test_class_Gold {
+    @isTest
+    public static void Test_method(){
+        Account ac = new Account(Name = 'samp', is_gold__c = FALSE);
+        insert ac;
+        Opportunity op = new Opportunity(Name='sam',AccountId = ac.Id,Amount=21000,CloseDate=Date.newInstance(2020, 09, 20),StageName ='Needs Analysis');
+        insert op;
+		Test.startTest();
+		op.Amount = 40000;
+        ac.is_gold__c = True;
+        update op;
+		Test.stopTest();        
+ 		       
+    }
+}

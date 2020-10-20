@@ -1,0 +1,18 @@
+public class is_gold_class {
+    public static void is_gold_method(List<Opportunity> ops){
+    	for(Opportunity op :ops){
+        	Account ac = [select Id, is_gold__c from Account where Id = :op.AccountId];
+        	List<Opportunity> oppo = [select Id, Amount from Opportunity where AccountId = :ac.Id];
+        	for(Opportunity opuni : oppo){
+            	if(opuni.Amount >= 20000){
+                	ac.is_gold__c = TRUE;
+            	}
+                else
+                {
+                    ac.is_gold__c = False;
+                }
+        	}
+           update ac;
+        }
+    }
+}
